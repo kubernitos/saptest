@@ -28,7 +28,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    bb: web
+    app: saptest
   ports:
   - port: 1234
     targetPort: 1234
