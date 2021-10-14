@@ -1,0 +1,8 @@
+Each step files paths in repo:
+-----------------------------
+
+Step 1: Web Service Docker Image - saptest/SAP/Dockerfile
+
+Step 2: Kubernetes Resources - saptest/SAP/kcluster
+
+Step 3: Helm Chart - saptest/SAP/saptest
