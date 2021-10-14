@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: {{ .Values.name }}
+  name: {{ .Values.name }}
+spec:
+  selector:
+    matchLabels:
+      app: {{.Values.name}}
+  replicas: {{ .Values.deployment.replicas }}
+  strategy: 
+    type: {{ .Values.deployment.strategy }}
+  template:
+    metadata:
+      labels:
+        app: {{.Values.name}}  
+    spec:
+      nodeSelector:
+        kubernetes.io/os: {{.Values.deployment.nodeSelectorOs}}
+      containers:
+      - env:
+        image: {{ .Values.image }}
+        imagePullPolicy: {{ .Values.deployment.imagePullPolicy }}
+        name: {{ .Values.name }}
+        ports:
+        - containerPort: {{ .Values.deployment.containerPort }}
+      restartPolicy: {{ .Values.deployment.restartPolicy }}
+      serviceAccountName: ""
+status: {}
